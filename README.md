@@ -1,18 +1,25 @@
-# J-lens sprint results
+# Exploring the Jacobian lens
 
 **Live page: https://isacsahlberg.github.io/jspace-exploration-results/**
 
-A static, self-contained results page from a research sprint replicating and
-extending Anthropic's
+An independent replication and extension of Anthropic's
 [*Verbalizable Representations Form a Global Workspace in Language Models*](https://transformer-circuits.pub/2026/workspace/index.html)
-(Transformer Circuits, 2026).
+(Transformer Circuits, 2026). This page is a static, self-contained rendering
+of the results we have so far.
 
 The Jacobian lens reads out what a mid-network activation is *disposed to make
 the model say*: it transports `h_l` into the final-layer basis with the
 corpus-averaged input–output Jacobian `J_l = E[dh_final/dh_l]`, then decodes it
-through the model's own unembedding. The sprint asked what that "workspace"
-readout is good for — when it forms, whether it exposes things the model
-declines to say, and which claims survive controls.
+through the model's own unembedding. We set out to test what that "workspace"
+readout is actually good for — when it forms during training, whether it
+exposes things the model declines to say, how much of it survives changing the
+fitting corpus, and which of the paper's claims hold up under matched controls.
+
+Concretely, that meant fitting lenses from scratch across 12 OLMo-3-7B
+pretraining checkpoints and on several model families, building a probe harness
+to compare in-band readouts against output logits, and designing controls for
+the paper's meta-token claim. Some of it replicates cleanly, some of it
+doesn't — both are on the page.
 
 ## Findings on the page
 
@@ -28,9 +35,11 @@ declines to say, and which claims survive controls.
 Every chart and interactive demo is rendered from cached experiment outputs —
 there is no GPU or model behind this page.
 
-## Status: partial
+## Status: ongoing
 
-This is a snapshot of work in progress, not a finished project. Section D
+This is a snapshot of work in progress, not a finished project — several
+threads listed above are still open, and the page will change as they close.
+Section D
 (steering) and section H (interactive layer × position slice viewers) are
 omitted here because their source artifacts are too large for git; they live in
 the main repo's Hugging Face backup. Negative and mixed results are kept on the
@@ -45,7 +54,7 @@ under `results/`, each with a summary, a narrative writeup, the underlying
 data, and figures. Large artifacts are backed up to
 [`isacsahlberg/jspace-lenses`](https://huggingface.co/isacsahlberg/jspace-lenses).
 
-This was a team sprint; the main repo's commit history records who did what.
+This is collaborative work; the main repo's commit history records who did what.
 
 <!-- TODO(Isac): add a line or two here on your own contribution before you
      send this to anyone — reviewers look for it, and it's better coming from

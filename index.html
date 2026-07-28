@@ -1,5 +1,5 @@
 <!--
-  J-lens sprint results — self-contained visualization page.
+  Exploring the Jacobian lens — self-contained results page.
   Fetches /api/results (?key= auth, same as the other /api endpoints) and
   renders inline-SVG charts. NO external CDNs/scripts/fonts (server blocks
   external hosts). Palette (blue #3987e5 / orange #d95926 / purple #8a7fe0)
@@ -13,7 +13,7 @@
 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>J-lens sprint results</title>
+<title>Exploring the Jacobian lens</title>
 <style>
   :root{
     --page:#0d0d0d; --surface:#1a1a19; --surface-2:#222220;
@@ -149,11 +149,11 @@
 
 <header>
   <div class="top">
-    <h1>J-lens sprint results</h1>
+    <h1>Exploring the Jacobian lens</h1>
     <a class="back" href="https://github.com/TheUnicat/jspace-exploration">repo ↗</a>
   </div>
   <div class="sub">Reading the mid-network "workspace" of language models with the Jacobian lens:
-    when it forms during pretraining, whether it reveals lies and suppressed knowledge, what steering it does and doesn't do, how much of it is corpus-invariant, how few prompts a fit really needs, and which "meta-token" claims survive controls. Everything below is rendered from cached experiment outputs — no GPU behind this page.</div>
+    when it forms during pretraining, whether it reveals lies and suppressed knowledge, how much of it is corpus-invariant, how few prompts a fit really needs, and which "meta-token" claims survive matched controls.<br><br>An independent replication and extension of Anthropic's <a href="https://transformer-circuits.pub/2026/workspace/index.html" target="_blank">Verbalizable Representations Form a Global Workspace in Language Models</a> (Transformer Circuits, 2026) — work in progress, and these are the results we have so far. Negative and mixed outcomes are kept alongside the positive ones. Everything below is rendered from cached experiment outputs — no GPU behind this page.</div>
   <nav class="toc" id="toc"></nav>
 </header>
 
