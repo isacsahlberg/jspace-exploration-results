@@ -54,12 +54,6 @@ under `results/`, each with a summary, a narrative writeup, the underlying
 data, and figures. Large artifacts are backed up to
 [`isacsahlberg/jspace-lenses`](https://huggingface.co/isacsahlberg/jspace-lenses).
 
-This is collaborative work; the main repo's commit history records who did what.
-
-<!-- TODO(Isac): add a line or two here on your own contribution before you
-     send this to anyone — reviewers look for it, and it's better coming from
-     you than inferred from commit logs. -->
-
 ## Rebuilding this page
 
 The page was the `/results` route of a FastAPI demo server that ran on a rented
