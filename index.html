@@ -392,9 +392,9 @@ async function main(){
     ["olmo","A","Formation", ()=>renderOlmo(d.olmo, d.findings?.olmo)],
     ["lies","B","Lie detection", ()=>renderLies(d.lies, d.findings?.lies)],
     ["censorship","C","Censorship", ()=>renderCensorship(d.censorship, d.findings?.censorship)],
-    ["corpus","E","Corpus", ()=>renderCorpus(d.corpus, d.findings?.corpus)],
-    ["nvar","F","Prompt variance", ()=>renderNvar(d.nvar, d.findings?.nvar)],
-    ["meta","G","Meta-tokens", ()=>renderMeta(d.meta, d.findings?.meta)],
+    ["corpus","D","Corpus", ()=>renderCorpus(d.corpus, d.findings?.corpus)],
+    ["nvar","E","Prompt variance", ()=>renderNvar(d.nvar, d.findings?.nvar)],
+    ["meta","F","Meta-tokens", ()=>renderMeta(d.meta, d.findings?.meta)],
   ];
   const toc=document.getElementById("toc");
   for (const [id,tag,label,fn] of secs){
@@ -758,7 +758,7 @@ function renderSteering(S, f){
 
 // ---------------- E. Corpus ----------------
 function renderCorpus(K, f){
-  const s=sectionEl("corpus","E","How much of the workspace is corpus-invariant?","gemma-4-12B · Qwen3.5-4B · Qwen3.6-35B",
+  const s=sectionEl("corpus","D","How much of the workspace is corpus-invariant?","gemma-4-12B · Qwen3.5-4B · Qwen3.6-35B",
     "3 models done","solid",
     "Cross-corpus CKA between wiki-fitted and chat-fitted Jacobians, by depth. Early layers inherit the fitting corpus; from ~38% depth — the workspace-band onset — the transport is a property of the weights, not the measurement corpus.");
   if (!K || K.error){ s.append(errBox(K?.error||"missing")); return s; }
@@ -793,7 +793,7 @@ function renderCorpus(K, f){
 
 // ---------------- F. Prompt variance (nvar) ----------------
 function renderNvar(N, f){
-  const s=sectionEl("nvar","F","How many prompts does a lens fit actually need?","Qwen3.5-4B · 13 single-prompt lenses",
+  const s=sectionEl("nvar","E","How many prompts does a lens fit actually need?","Qwen3.5-4B · 13 single-prompt lenses",
     N && N.replication==="running" ? "done · replication running"
       : (N && N.replication && N.replication.status==="done" ? "done · replicated ✓" : "done"),
     "solid",
@@ -890,7 +890,7 @@ function renderNvar(N, f){
 
 // ---------------- G. Meta-tokens ----------------
 function renderMeta(M, f){
-  const s=sectionEl("meta","G","Meta-tokens: does the “pun detector” survive controls?","Qwen3.6-27B · literal replication",
+  const s=sectionEl("meta","F","Meta-tokens: does the “pun detector” survive controls?","Qwen3.6-27B · literal replication",
     M && M.lcm ? "pun ✗ · gcd read ✓ · write ✗" : "claim ✗ · phenomenon ✓","mixed",
     "A LessWrong post reported tokens that name the computation (什么意思 “what does this mean” firing on puns). Literal replication — same model, same lens — but with matched literal controls the post lacked: every pun paired with a same-words no-pun sentence, tracking full-vocabulary ranks.");
   if (!M || M.error){ s.append(errBox(M?.error||"missing")); return s; }

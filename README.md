@@ -28,9 +28,9 @@ doesn't — both are on the page.
 | A | Workspace formation | 12-checkpoint sweep done | In OLMo-3-7B the workspace ignites at 25–50k steps — well after LM competence (~5k) — and its readout layer migrates deeper (L9 → L24) |
 | B | Lie detection | First pass done (27B strong) | Told to lie, the model says "Toronto" while Ottawa sits at rank 2 in the workspace — a zero-shot polygraph, though it does not hold up as a population statistic |
 | C | Censorship | Behavioral solid; lens-level suggestive | Refusals look like suppression, not ignorance — a base model continues with content the aligned model withholds |
-| E | Corpus dependence | 3 models done | Workspace-band transport is corpus-invariant; early layers inherit the fitting corpus |
-| F | Prompt variance | Main study done + replication | One prompt closes 79% of the logit-lens → n=1000 gap, five close 97% — only early layers need averaging |
-| G | Meta-tokens / pun probe | Phase 0 done | The paper's algorithm-naming meta-token does *not* survive matched controls; sense disambiguation and answer anticipation replicate strongly |
+| D | Corpus dependence | 3 models done | Workspace-band transport is corpus-invariant; early layers inherit the fitting corpus |
+| E | Prompt variance | Main study done + replication | One prompt closes 79% of the logit-lens → n=1000 gap, five close 97% — only early layers need averaging |
+| F | Meta-tokens / pun probe | Phase 0 done | The paper's algorithm-naming meta-token does *not* survive matched controls; sense disambiguation and answer anticipation replicate strongly |
 
 Every chart and interactive demo is rendered from cached experiment outputs —
 there is no GPU or model behind this page.
@@ -39,10 +39,9 @@ there is no GPU or model behind this page.
 
 This is a snapshot of work in progress, not a finished project — several
 threads listed above are still open, and the page will change as they close.
-Section D
-(steering) and section H (interactive layer × position slice viewers) are
-omitted here because their source artifacts are too large for git; they live in
-the main repo's Hugging Face backup. Negative and mixed results are kept on the
+The steering study and the interactive layer × position slice viewers are
+omitted here because their source artifacts are not in git; they live in the
+main repo's Hugging Face backup. Negative and mixed results are kept on the
 page rather than dropped — the meta-token control failure and the lie-detection
 scale-up are both reported as they came out.
 
